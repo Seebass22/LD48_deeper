@@ -21,11 +21,6 @@ func generate_segment(x_pos, y_pos):
 		for x in range(wall_width):
 			x += x_pos
 			$Walls.set_cell(x, y, 0)
-
-	for y in range(segment_size):
-		y += y_pos
-		for x in range(wall_width):
-			x += x_pos
 			$Walls.set_cell(x + wall_width + tunnel_width, y, 0)
 
 	var start_pos = Vector2(x_pos, y_pos)
