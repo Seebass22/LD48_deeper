@@ -31,7 +31,7 @@ func generate_segment(x_pos, y_pos):
 
 
 func add_segment():
-	var change_direction_chance = 20
+	var change_direction_chance = 40
 
 	randomize()
 	if randi() % 100 < change_direction_chance:
