@@ -276,10 +276,10 @@ scale = Vector2( 4, 4 )
 tile_set = SubResource( 12 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65539, 0, 1, 65540, 0, 3 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 219.792, 9.5559 )
+scale = Vector2( 4, 4 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
