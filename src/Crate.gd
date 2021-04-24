@@ -4,8 +4,9 @@ var hit = false
 
 func explode():
 	if not hit:
-		Signals.emit_signal("crate_destroyed")
 		hit = true
+		Signals.emit_signal("crate_destroyed")
+		$CollisionShape2D.set_deferred('disabled', true)
 		$AnimatedSprite.frame = 1
 		$AnimatedSprite.play()
 

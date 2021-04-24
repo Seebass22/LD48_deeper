@@ -14,8 +14,11 @@ func _ready():
 
 
 func _process(delta):
-	move_and_collide(velocity * 5000 * delta)
 	handle_input(delta)
+
+	var collision = move_and_collide(velocity * 5000 * delta)
+	if collision:
+		Signals.emit_signal("game_over")
 
 	if position.y >= next_segment_generation_y:
 		print(position.y)

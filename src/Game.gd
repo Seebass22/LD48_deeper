@@ -17,6 +17,7 @@ func _ready():
 	$Player.connect("should_generate_segment", self, "add_segment")
 	$Player.connect("should_generate_segment", self, "increase_score_distance")
 	Signals.connect("crate_destroyed", self, "increase_score_crate")
+	Signals.connect("game_over", self, "game_over")
 	add_segment()
 	add_segment()
 	update_score_ui()
@@ -61,3 +62,7 @@ func increase_score_crate():
 
 func update_score_ui():
 	score_text.set_text("%d" % [score])
+
+
+func game_over():
+	get_tree().change_scene("res://Game.tscn")
