@@ -1,9 +1,11 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://Assets/tilemap.png" type="Texture" id=2]
 [ext_resource path="res://src/Player.gd" type="Script" id=3]
 [ext_resource path="res://src/Game.gd" type="Script" id=4]
+[ext_resource path="res://Assets/gun.png" type="Texture" id=5]
+[ext_resource path="res://src/Gun.gd" type="Script" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0.0427628, 16, 0.0427628 )
@@ -278,7 +280,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 219.792, 9.5559 )
+position = Vector2( 298.191, 13.1195 )
 scale = Vector2( 4, 4 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -293,3 +295,7 @@ shape = SubResource( 13 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+
+[node name="Gun" type="Sprite" parent="Player"]
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
