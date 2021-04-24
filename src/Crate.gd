@@ -4,6 +4,7 @@ var hit = false
 
 func explode():
 	if not hit:
+		Signals.emit_signal("crate_destroyed")
 		hit = true
 		$AnimatedSprite.frame = 1
 		$AnimatedSprite.play()

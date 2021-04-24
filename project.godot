@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Deeper"
 config/icon="res://icon.png"
 
+[autoload]
+
+Signals="*res://src/Signals.gd"
+
 [importer_defaults]
 
 texture={

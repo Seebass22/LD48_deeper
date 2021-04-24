@@ -1,5 +1,8 @@
 extends Node2D
 
+export (NodePath) var _score_path
+onready var score_text: Label = get_node(_score_path)
+
 var wall_width = 3
 var tunnel_width = 8
 var segment_size = 16
@@ -7,12 +10,16 @@ var segment_size = 16
 var current_x_offset = 0
 var current_y = 0
 var current_direction = 0
+var score = 0
 
 
 func _ready():
 	$Player.connect("should_generate_segment", self, "add_segment")
+	$Player.connect("should_generate_segment", self, "increase_score_distance")
+	Signals.connect("crate_destroyed", self, "increase_score_crate")
 	add_segment()
 	add_segment()
+	update_score_ui()
 
 
 func generate_segment(x_pos, y_pos):
@@ -40,3 +47,17 @@ func add_segment():
 		current_x_offset += pow(-1, randi() % 2 + 1)
 
 	generate_segment(current_x_offset, current_y)
+
+
+func increase_score_distance():
+	score += 10
+	update_score_ui()
+
+
+func increase_score_crate():
+	score += 20
+	update_score_ui()
+
+
+func update_score_ui():
+	score_text.set_text("%d" % [score])
