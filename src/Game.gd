@@ -3,6 +3,9 @@ extends Node2D
 export (NodePath) var _score_path
 onready var score_text: Label = get_node(_score_path)
 
+const Crate = preload("res://Crate.tscn")
+const SlowdownArea = preload("res://SlowdownArea.tscn")
+
 var wall_width = 3
 var tunnel_width = 8
 var segment_size = 16
@@ -46,8 +49,30 @@ func add_segment():
 	if random < change_direction_chance:
 		print('change direction')
 		current_x_offset += pow(-1, randi() % 2 + 1)
+		add_crate_segment()
 
 	generate_segment(current_x_offset, current_y)
+
+
+func add_crate_segment():
+	if current_y < 3:
+		return
+
+	var slowdown_area = SlowdownArea.instance()
+	var start_x = current_x_offset + wall_width
+	slowdown_area.position = Vector2(start_x * 64, current_y * 64)
+	add_child(slowdown_area)
+
+
+	var crate_spawn_y_offset = 4
+	for y in range(4):
+		y += current_y
+		y += crate_spawn_y_offset
+		for x in range(tunnel_width):
+			var crate = Crate.instance()
+			x += current_x_offset + wall_width
+			crate.position = Vector2(x * 64, y * 64)
+			add_child(crate)
 
 
 func increase_score_distance():

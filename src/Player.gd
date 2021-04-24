@@ -33,8 +33,3 @@ func handle_input(delta):
 	if Input.is_action_pressed("right"):
 		if velocity.x < max_x_speed:
 			velocity.x += 0.5 * delta
-
-	if Input.is_action_just_pressed("slow_motion"):
-			Engine.time_scale = 0.2
-	if Input.is_action_just_pressed("normal_speed"):
-			Engine.time_scale = 1
