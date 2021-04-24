@@ -31,10 +31,11 @@ func generate_segment(x_pos, y_pos):
 
 
 func add_segment():
-	var change_direction_chance = 40
+	var change_direction_chance = 55
 
 	randomize()
-	if randi() % 100 < change_direction_chance:
+	var random = randi() % 100
+	if random < change_direction_chance:
 		print('change direction')
 		current_x_offset += pow(-1, randi() % 2 + 1)
 
