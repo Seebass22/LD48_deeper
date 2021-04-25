@@ -31,3 +31,7 @@ func low_pitch_boom():
 
 func high_pitch_boom():
 	$ExplosionSound.pitch_scale = 1
+
+
+func _on_DespawnTimer_timeout():
+	queue_free()
