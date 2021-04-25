@@ -15,8 +15,7 @@ func explode():
 
 
 func play_hit_sound():
-	$HitSound.pitch_scale *= 1 + (Global.combo + 1) / 32.0
-	print($HitSound.pitch_scale)
+	$HitSound.pitch_scale *= 1 + (Global.combo) / 16.0
 	$HitSound.play()
 
 
