@@ -17,3 +17,4 @@ func shoot():
 	bullet.position = position + Vector2(5, 0).rotated(rotation)
 	bullet.rotation = rotation
 	get_parent().add_child(bullet)
+	$ShootSound.play()
