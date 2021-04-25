@@ -33,5 +33,7 @@ func handle_input(delta):
 	elif Input.is_action_pressed("right"):
 		if velocity.x < max_x_speed:
 			velocity.x += 0.5 * delta
-	else:
-		velocity.x *= 0.999
+
+
+func _physics_process(delta):
+	velocity.x *= 0.95

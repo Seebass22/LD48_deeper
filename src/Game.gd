@@ -14,7 +14,6 @@ var segment_size = 16
 var current_x_offset = 0
 var current_y = 0
 var current_direction = 0
-var score = 0
 
 
 func _ready():
@@ -113,22 +112,22 @@ func add_target_segment():
 
 
 func increase_score_distance():
-	score += 10
+	Global.score += 10
 	update_score_ui()
 
 
 func increase_score_crate():
-	score += 2
+	Global.score += 2
 	update_score_ui()
 
 
 func increase_score_target():
-	score += 10
+	Global.score += 10
 	update_score_ui()
 
 
 func update_score_ui():
-	score_text.set_text("%d" % [score])
+	score_text.set_text("%d" % [Global.score])
 
 
 func game_over():
