@@ -4,6 +4,7 @@ export (NodePath) var _score_path
 onready var score_text: Label = get_node(_score_path)
 
 const Crate = preload("res://Crate.tscn")
+const Target = preload("res://Target.tscn")
 const SlowdownArea = preload("res://SlowdownArea.tscn")
 
 var wall_width = 3
