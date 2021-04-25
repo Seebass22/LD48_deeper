@@ -138,7 +138,7 @@ func update_score_ui():
 
 
 func game_over():
-	get_tree().change_scene("res://Game.tscn")
+	get_tree().change_scene("res://GameOver.tscn")
 
 
 func increment_combo():
