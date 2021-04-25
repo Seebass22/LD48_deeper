@@ -3,6 +3,9 @@ extends Node2D
 export (NodePath) var _score_path
 onready var score_text: Label = get_node(_score_path)
 
+export (NodePath) var _combo_path
+onready var combo_ui: HBoxContainer = get_node(_combo_path)
+
 const Crate = preload("res://Crate.tscn")
 const Target = preload("res://Target.tscn")
 const SlowdownArea = preload("res://SlowdownArea.tscn")
@@ -21,10 +24,14 @@ func _ready():
 	$Player.connect("should_generate_segment", self, "increase_score_distance")
 	Signals.connect("crate_destroyed", self, "increase_score_crate")
 	Signals.connect("target_destroyed", self, "increase_score_target")
+	Signals.connect("target_destroyed", self, "increment_combo")
+	Signals.connect("reset_combo", self, "reset_combo")
 	Signals.connect("game_over", self, "game_over")
 	add_segment()
 	add_segment()
 	update_score_ui()
+	Global.score = 0
+	reset_combo()
 
 
 func generate_segment(x_pos, y_pos):
@@ -132,3 +139,20 @@ func update_score_ui():
 
 func game_over():
 	get_tree().change_scene("res://Game.tscn")
+
+
+func increment_combo():
+	if Global.combo < Global.max_combo:
+		Global.combo += 1
+		combo_ui.visible = true
+	update_combo_ui()
+
+
+func update_combo_ui():
+	combo_ui.get_node("combo").set_text("%d" % [Global.combo])
+
+
+func reset_combo():
+	Global.combo = 0
+	combo_ui.visible = false
+	update_combo_ui()

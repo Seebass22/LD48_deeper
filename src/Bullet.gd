@@ -28,5 +28,5 @@ func _on_Bullet_body_entered(body):
 
 
 func _on_DespawnTimer_timeout():
-	Global.combo = 0
+	Signals.emit_signal("reset_combo")
 	queue_free()

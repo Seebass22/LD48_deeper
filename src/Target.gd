@@ -6,7 +6,6 @@ var hit = false
 func explode():
 	if not hit:
 		hit = true
-		Global.combo += 1
 		Signals.emit_signal("target_destroyed")
 		$CollisionShape2D.set_deferred('disabled', true)
 		$AnimatedSprite.frame = 1

@@ -279,6 +279,7 @@ font_data = ExtResource( 7 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
 _score_path = NodePath("UI/ScoreUI/score")
+_combo_path = NodePath("UI/ComboUI")
 
 [node name="Walls" type="TileMap" parent="."]
 scale = Vector2( 4, 4 )
@@ -323,10 +324,10 @@ volume_db = -8.0
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ScoreUI" type="HBoxContainer" parent="UI"]
-margin_left = 734.818
-margin_top = 51.7137
-margin_right = 1002.82
-margin_bottom = 91.7137
+margin_left = 700.0
+margin_top = 16.0
+margin_right = 968.0
+margin_bottom = 56.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -347,6 +348,35 @@ margin_right = 268.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 29 )
 text = "50000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComboUI" type="HBoxContainer" parent="UI"]
+margin_left = 262.0
+margin_top = 16.0
+margin_right = 434.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/ComboUI"]
+margin_right = 144.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 29 )
+text = "Combo: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combo" type="Label" parent="UI/ComboUI"]
+margin_left = 148.0
+margin_right = 172.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 29 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
