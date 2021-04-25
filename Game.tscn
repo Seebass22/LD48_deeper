@@ -350,3 +350,4 @@ text = "50000"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="finished" from="Player/Gun/ShootSound" to="." method="_on_ShootSound_finished"]
