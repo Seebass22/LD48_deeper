@@ -21,7 +21,6 @@ func _process(delta):
 		Signals.emit_signal("game_over")
 
 	if position.y >= next_segment_generation_y:
-		print(position.y)
 		next_segment_generation_y += 1024
 		emit_signal("should_generate_segment")
 

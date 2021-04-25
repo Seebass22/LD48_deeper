@@ -9,10 +9,10 @@
 [ext_resource path="res://Assets/fonts/Pixeltype.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/audio/shoot.wav" type="AudioStream" id=8]
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.51929, 3.65002 )
 
-[sub_resource type="DynamicFont" id=29]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 7 )
 
@@ -39,7 +39,7 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 28 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2( 0, 128 )
@@ -76,7 +76,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="UI/ScoreUI"]
 margin_right = 144.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 2 )
 text = "score: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,7 +86,7 @@ __meta__ = {
 margin_left = 148.0
 margin_right = 268.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 2 )
 text = "50000"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,7 +105,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="UI/ComboUI"]
 margin_right = 144.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 2 )
 text = "Combo: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,7 +115,7 @@ __meta__ = {
 margin_left = 148.0
 margin_right = 172.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 2 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false

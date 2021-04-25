@@ -9,6 +9,7 @@ onready var combo_ui: HBoxContainer = get_node(_combo_path)
 const Crate = preload("res://Crate.tscn")
 const Target = preload("res://Target.tscn")
 const SlowdownArea = preload("res://SlowdownArea.tscn")
+const Obstacle = preload("res://Obstacle.tscn")
 
 var wall_width = 3
 var tunnel_width = 8
@@ -50,19 +51,29 @@ func generate_segment(x_pos, y_pos):
 
 
 func add_segment():
-	var change_direction_chance = 60
+	var change_direction_chance = 40
 
 	randomize()
 	var random = randi() % 100
 	if random < change_direction_chance:
-		print('change direction')
 		current_x_offset += pow(-1, randi() % 2 + 1)
 		if randi() % 2 == 0:
 			add_crate_segment()
 		else:
 			add_target_segment()
 
+	else:
+		if current_y > 2:
+			spawn_obstacles()
+
 	generate_segment(current_x_offset, current_y)
+
+
+func spawn_obstacles():
+		var spawn_y = current_y + 4 + randi() % 4
+		for i in range((randi() % 3 ) + 1):
+			spawn_y += 1
+			spawn_obstacle(spawn_y + 1 + randi() % 5)
 
 
 func add_crate_segment():
@@ -95,7 +106,6 @@ func add_target_segment():
 	add_child(slowdown_area)
 
 	var pattern = randi() % 2
-	print(pattern)
 
 	var target_spawn_y_offset = 4
 	for y in range(5):
@@ -156,3 +166,13 @@ func reset_combo():
 	Global.combo = 0
 	combo_ui.visible = false
 	update_combo_ui()
+
+
+func spawn_obstacle(y):
+	randomize()
+	var start_x = (current_x_offset + wall_width) * 64 + 32
+	var obstacle = Obstacle.instance()
+	obstacle.position.x = (randi() % 400) + 32
+	obstacle.starting_position_x = start_x
+	obstacle.position.y = y * 64
+	add_child(obstacle)
