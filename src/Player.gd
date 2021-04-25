@@ -30,6 +30,8 @@ func handle_input(delta):
 	if Input.is_action_pressed("left"):
 		if velocity.x > -max_x_speed:
 			velocity.x -= 0.5 * delta
-	if Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right"):
 		if velocity.x < max_x_speed:
 			velocity.x += 0.5 * delta
+	else:
+		velocity.x *= 0.999
