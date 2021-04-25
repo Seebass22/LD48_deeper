@@ -26,3 +26,7 @@ func _ready():
 
 func _on_PlayAgain_button_up():
 	get_tree().change_scene("res://Game.tscn")
+
+
+func _on_MainMenu_button_up():
+	get_tree().change_scene("res://MainMenu.tscn")

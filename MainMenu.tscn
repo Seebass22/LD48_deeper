@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/fonts/Pixeltype.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://src/MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Play" type="Button" parent="."]
+margin_left = 354.366
+margin_top = 199.005
+margin_right = 473.366
+margin_bottom = 256.005
+custom_fonts/font = SubResource( 1 )
+text = "play"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 389.524
+margin_top = 325.78
+margin_right = 578.524
+margin_bottom = 384.78
+custom_fonts/font = SubResource( 1 )
+text = "quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 410.636
+margin_top = 27.1165
+margin_right = 826.636
+margin_bottom = 107.117
+custom_fonts/font = SubResource( 2 )
+text = "Deeper..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Play" to="." method="_on_Play_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_Quit_button_up"]
