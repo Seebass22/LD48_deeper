@@ -9,7 +9,9 @@ func _physics_process(delta):
 		queue_free()
 		if collision.collider.has_method('explode'):
 			collision.collider.explode()
-			queue_free()
+		else:
+			Global.combo = 0
+		queue_free()
 
 
 func _ready():
@@ -23,3 +25,8 @@ func setBulletSpeed():
 func _on_Bullet_body_entered(body):
 	if body.has_method('explode'):
 		body.explode()
+
+
+func _on_DespawnTimer_timeout():
+	Global.combo = 0
+	queue_free()

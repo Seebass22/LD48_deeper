@@ -6,10 +6,18 @@ var hit = false
 func explode():
 	if not hit:
 		hit = true
+		Global.combo += 1
 		Signals.emit_signal("target_destroyed")
 		$CollisionShape2D.set_deferred('disabled', true)
 		$AnimatedSprite.frame = 1
 		$AnimatedSprite.play()
+		play_hit_sound()
+
+
+func play_hit_sound():
+	$HitSound.pitch_scale *= 1 + (Global.combo + 1) / 32.0
+	print($HitSound.pitch_scale)
+	$HitSound.play()
 
 
 func _on_AnimatedSprite_animation_finished():
