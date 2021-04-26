@@ -35,10 +35,10 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Play" type="Button" parent="."]
-margin_left = 354.366
-margin_top = 199.005
-margin_right = 473.366
-margin_bottom = 256.005
+margin_left = 320.0
+margin_top = 192.0
+margin_right = 512.0
+margin_bottom = 256.0
 custom_fonts/font = SubResource( 1 )
 text = "play"
 flat = true
@@ -47,10 +47,10 @@ __meta__ = {
 }
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 389.524
-margin_top = 325.78
-margin_right = 578.524
-margin_bottom = 384.78
+margin_left = 384.0
+margin_top = 320.0
+margin_right = 576.0
+margin_bottom = 384.0
 custom_fonts/font = SubResource( 1 )
 text = "quit"
 flat = true
