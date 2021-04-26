@@ -6,6 +6,7 @@ func _ready():
 	$Title.visible = false
 	$Play.visible = false
 	$Quit.visible = false
+	$PanelText.visible = false
 	$MusicButton.visible = false
 
 	for y in range(6):
@@ -42,6 +43,14 @@ func _ready():
 			$TileMap.set_cell(x+6, 5, 0)
 			$TileMap.update_bitmask_region(Vector2(0,0), Vector2(16,16))
 		$Quit.visible = true
+
+	# panel BG
+	for x in range(5):
+		for y in range(6):
+			yield(get_tree().create_timer(tile_spawn_delay), "timeout")
+			$TileMap.set_cell(x+10, y+3, 1)
+			$TileMap.update_bitmask_region(Vector2(0,0), Vector2(16,16))
+	$PanelText.visible = true
 
 	$MusicButton.pressed = not Global.music_enabled
 	$MusicButton.visible = true
