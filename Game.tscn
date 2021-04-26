@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://tileset.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/Gun.gd" type="Script" id=6]
 [ext_resource path="res://Assets/fonts/Pixeltype.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/audio/shoot.wav" type="AudioStream" id=8]
+[ext_resource path="res://src/ComboUI.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.51929, 3.65002 )
@@ -64,10 +65,10 @@ volume_db = -8.0
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ScoreUI" type="HBoxContainer" parent="UI"]
-margin_left = 700.0
-margin_top = 16.0
-margin_right = 968.0
-margin_bottom = 56.0
+margin_left = 704.005
+margin_top = 26.6787
+margin_right = 972.005
+margin_bottom = 66.6787
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -93,10 +94,11 @@ __meta__ = {
 }
 
 [node name="ComboUI" type="HBoxContainer" parent="UI"]
-margin_left = 262.0
-margin_top = 16.0
-margin_right = 434.0
-margin_bottom = 56.0
+margin_left = 426.0
+margin_top = 98.024
+margin_right = 598.0
+margin_bottom = 138.024
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -120,4 +122,6 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="UI/ComboUI"]
 [connection signal="finished" from="Player/Gun/ShootSound" to="." method="_on_ShootSound_finished"]

@@ -161,6 +161,7 @@ func increment_combo():
 		Global.combo += 1
 		combo_ui.visible = true
 	update_combo_ui()
+	combo_ui.bounce()
 
 
 func update_combo_ui():

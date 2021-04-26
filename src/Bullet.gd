@@ -10,7 +10,7 @@ func _physics_process(delta):
 		if collision.collider.has_method('explode'):
 			collision.collider.explode()
 		else:
-			Global.combo = 0
+			Signals.emit_signal("reset_combo")
 		queue_free()
 
 
