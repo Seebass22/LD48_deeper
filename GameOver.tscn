@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/fonts/Pixeltype.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/GameOver.gd" type="Script" id=3]
+[ext_resource path="res://Assets/audio/game_over.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -86,5 +87,10 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverJingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -18.0
+autoplay = true
 [connection signal="button_up" from="PlayAgain" to="." method="_on_PlayAgain_button_up"]
 [connection signal="button_up" from="MainMenu" to="." method="_on_MainMenu_button_up"]
