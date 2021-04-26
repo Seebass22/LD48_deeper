@@ -30,8 +30,8 @@ func _ready():
 	Signals.connect("game_over", self, "game_over")
 	add_segment()
 	add_segment()
-	update_score_ui()
 	Global.score = 0
+	update_score_ui()
 	reset_combo()
 
 
@@ -105,7 +105,8 @@ func add_target_segment():
 	slowdown_area.position = Vector2(start_x * 64, current_y * 64)
 	add_child(slowdown_area)
 
-	var pattern = randi() % 2
+	randomize()
+	var pattern = randi() % 3
 
 	var target_spawn_y_offset = 4
 	for y in range(5):
@@ -121,6 +122,10 @@ func add_target_segment():
 				# diagonal pattern
 				if (x+y) % 4 != 3:
 					continue
+			elif pattern == 2:
+				# vertical lines pattern
+				if (x) % 2 == 0:
+					continue
 
 			var target = Target.instance()
 			x += current_x_offset + wall_width
@@ -129,7 +134,7 @@ func add_target_segment():
 
 
 func increase_score_distance():
-	Global.score += 10
+	Global.score += 20
 	update_score_ui()
 
 
@@ -139,7 +144,7 @@ func increase_score_crate():
 
 
 func increase_score_target():
-	Global.score += 10
+	Global.score += 5 * (1 + Global.combo)
 	update_score_ui()
 
 
