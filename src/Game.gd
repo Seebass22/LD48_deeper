@@ -21,6 +21,7 @@ var current_direction = 0
 
 
 func _ready():
+	randomize()
 	$Player.connect("should_generate_segment", self, "add_segment")
 	$Player.connect("should_generate_segment", self, "increase_score_distance")
 	Signals.connect("crate_destroyed", self, "increase_score_crate")
@@ -51,9 +52,8 @@ func generate_segment(x_pos, y_pos):
 
 
 func add_segment():
-	var change_direction_chance = 40
+	var change_direction_chance = 45
 
-	randomize()
 	var random = randi() % 100
 	if random < change_direction_chance:
 		current_x_offset += pow(-1, randi() % 2 + 1)
@@ -105,7 +105,6 @@ func add_target_segment():
 	slowdown_area.position = Vector2(start_x * 64, current_y * 64)
 	add_child(slowdown_area)
 
-	randomize()
 	var pattern = randi() % 3
 
 	var target_spawn_y_offset = 4
@@ -175,7 +174,6 @@ func reset_combo():
 
 
 func spawn_obstacle(y):
-	randomize()
 	var start_x = (current_x_offset + wall_width) * 64 + 32
 	var obstacle = Obstacle.instance()
 	obstacle.position.x = (randi() % 400) + 32
