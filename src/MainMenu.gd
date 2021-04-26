@@ -6,6 +6,8 @@ func _ready():
 	$Title.visible = false
 	$Play.visible = false
 	$Quit.visible = false
+	$MusicButton.visible = false
+
 	for y in range(6):
 		for x in range(3):
 			yield(get_tree().create_timer(tile_spawn_delay), "timeout")
@@ -34,13 +36,15 @@ func _ready():
 	$Play.visible = true
 
 	# quit button BG
-	if OS.get_name() == "HTML5":
-		return
-	for x in range(3):
-		yield(get_tree().create_timer(tile_spawn_delay), "timeout")
-		$TileMap.set_cell(x+6, 5, 0)
-		$TileMap.update_bitmask_region(Vector2(0,0), Vector2(16,16))
-	$Quit.visible = true
+	if not OS.get_name() == "HTML5":
+		for x in range(3):
+			yield(get_tree().create_timer(tile_spawn_delay), "timeout")
+			$TileMap.set_cell(x+6, 5, 0)
+			$TileMap.update_bitmask_region(Vector2(0,0), Vector2(16,16))
+		$Quit.visible = true
+
+	$MusicButton.pressed = not Global.music_enabled
+	$MusicButton.visible = true
 
 
 func _on_Play_button_up():
@@ -49,3 +53,7 @@ func _on_Play_button_up():
 
 func _on_Quit_button_up():
 	get_tree().quit()
+
+
+func _on_MusicButton_toggled(button_pressed):
+	Global.music_enabled = not button_pressed
