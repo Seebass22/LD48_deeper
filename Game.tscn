@@ -153,5 +153,5 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="UI/MusicButton"]
 stream = ExtResource( 12 )
 volume_db = -9.0
-[connection signal="finished" from="Player/Gun/ShootSound" to="." method="_on_ShootSound_finished"]
+
 [connection signal="toggled" from="UI/MusicButton" to="UI/MusicButton" method="_on_MusicButton_toggled"]

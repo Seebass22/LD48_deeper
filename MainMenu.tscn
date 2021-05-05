@@ -34,6 +34,9 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
+[node name="Timer" type="Timer" parent="TileMap"]
+wait_time = 0.03
+
 [node name="Play" type="Button" parent="."]
 margin_left = 320.0
 margin_top = 192.0
@@ -103,6 +106,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="button_up" from="Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Quit" to="." method="_on_Quit_button_up"]
 [connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
