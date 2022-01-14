@@ -15,11 +15,11 @@
 [sub_resource type="StreamTexture" id=28]
 load_path = "res://.import/player.png-5fe826d179e8297c657fd07c30124f2f.stex"
 
-[sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 3.51929, 3.65002 )
+[sub_resource type="CircleShape2D" id=33]
+radius = 16.3751
 
 [sub_resource type="DynamicFont" id=30]
-size = 64
+size = 32
 font_data = ExtResource( 7 )
 
 [sub_resource type="AtlasTexture" id=31]
@@ -53,7 +53,8 @@ script = ExtResource( 3 )
 texture = SubResource( 28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 29 )
+position = Vector2( 0.529495, -0.49725 )
+shape = SubResource( 33 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2( 0, 128 )
@@ -88,8 +89,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="UI/ScoreUI"]
-margin_right = 144.0
-margin_bottom = 40.0
+margin_top = 10.0
+margin_right = 72.0
+margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0.188235, 0.231373, 1 )
 custom_fonts/font = SubResource( 30 )
 text = "score: "
@@ -98,9 +100,10 @@ __meta__ = {
 }
 
 [node name="score" type="Label" parent="UI/ScoreUI"]
-margin_left = 148.0
-margin_right = 268.0
-margin_bottom = 40.0
+margin_left = 76.0
+margin_top = 10.0
+margin_right = 136.0
+margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0.188235, 0.231373, 1 )
 custom_fonts/font = SubResource( 30 )
 text = "50000"
@@ -109,10 +112,10 @@ __meta__ = {
 }
 
 [node name="ComboUI" type="HBoxContainer" parent="UI"]
-margin_left = 426.0
-margin_top = 98.024
-margin_right = 598.0
-margin_bottom = 138.024
+margin_left = 577.799
+margin_top = 164.434
+margin_right = 749.799
+margin_bottom = 204.434
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true,
@@ -120,8 +123,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="UI/ComboUI"]
-margin_right = 144.0
-margin_bottom = 40.0
+margin_top = 10.0
+margin_right = 72.0
+margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0.188235, 0.231373, 1 )
 custom_fonts/font = SubResource( 30 )
 text = "Combo: "
@@ -130,9 +134,10 @@ __meta__ = {
 }
 
 [node name="combo" type="Label" parent="UI/ComboUI"]
-margin_left = 148.0
-margin_right = 172.0
-margin_bottom = 40.0
+margin_left = 76.0
+margin_top = 10.0
+margin_right = 88.0
+margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0.188235, 0.231373, 1 )
 custom_fonts/font = SubResource( 30 )
 text = "0"
