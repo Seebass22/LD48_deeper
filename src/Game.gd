@@ -12,7 +12,7 @@ const SlowdownArea = preload("res://SlowdownArea.tscn")
 const Obstacle = preload("res://Obstacle.tscn")
 
 var wall_width = 3
-var tunnel_width = 8
+var tunnel_width = 9
 var segment_size = 16
 
 var current_x_offset = 0
@@ -120,7 +120,7 @@ func add_segment():
 		segment_direction *= -1
 		current_x_offset += segment_direction
 
-		if randi() % 2 == 0:
+		if randi() % 3 == 0:
 			add_crate_segment()
 		else:
 			add_target_segment()
