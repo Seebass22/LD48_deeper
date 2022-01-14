@@ -119,11 +119,7 @@ func add_segment():
 		is_new_direction = 1
 		segment_direction *= -1
 		current_x_offset += segment_direction
-
-		if randi() % 3 == 0:
-			add_crate_segment()
-		else:
-			add_target_segment()
+		add_target_segment()
 
 	else:
 		if current_y > 2:
@@ -134,9 +130,9 @@ func add_segment():
 
 func spawn_obstacles():
 		var spawn_y = current_y + 4 + randi() % 4
-		for _i in range((randi() % 3 ) + 1):
+		for _i in range((randi() % 4 ) + 1):
 			spawn_y += 1
-			spawn_obstacle(spawn_y + 1 + randi() % 5)
+			spawn_obstacle(spawn_y)
 
 
 func add_crate_segment():
@@ -215,7 +211,7 @@ func update_score_ui():
 
 
 func game_over():
-	get_tree().change_scene("res://GameOver.tscn")
+	var _i = get_tree().change_scene("res://GameOver.tscn")
 
 
 func increment_combo():
