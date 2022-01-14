@@ -19,6 +19,7 @@ position = Vector2( 1.49831, 4.76837e-07 )
 shape = SubResource( 1 )
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 autostart = true
+
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]

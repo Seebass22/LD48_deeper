@@ -12,7 +12,7 @@ const SlowdownArea = preload("res://SlowdownArea.tscn")
 const Obstacle = preload("res://Obstacle.tscn")
 
 var wall_width = 3
-var tunnel_width = 9
+var tunnel_width = 10
 var segment_size = 16
 
 var current_x_offset = 0
