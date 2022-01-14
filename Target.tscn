@@ -38,13 +38,13 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -5, -1 )
+position = Vector2( -0.894585, 0.0594578 )
 frames = SubResource( 5 )
 animation = "destroy"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 11.3446, 14.555 )
+position = Vector2( 15.7149, 15.6145 )
 shape = SubResource( 11 )
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
