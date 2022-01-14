@@ -4,11 +4,10 @@
 [ext_resource path="res://Assets/obstacle.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6.50349, 4.51486 )
+extents = Vector2( 10.5, 10 )
 
 [node name="Obstacle" type="KinematicBody2D"]
-position = Vector2( 28, 16 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 1 )
@@ -20,5 +19,5 @@ __meta__ = {
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.496507, 2.48514 )
+position = Vector2( -0.5, -2 )
 shape = SubResource( 1 )

@@ -241,5 +241,6 @@ func spawn_obstacle(y):
 	var obstacle = Obstacle.instance()
 	obstacle.position.x = (randi() % 400) + 32
 	obstacle.starting_position_x = start_x
+	obstacle.tunnel_width = (tunnel_width * 64)
 	obstacle.position.y = y * 64
 	add_child(obstacle)
