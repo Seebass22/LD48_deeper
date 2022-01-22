@@ -16,6 +16,9 @@ var wall_width = 3
 var tunnel_width = 10
 var segment_size = 16
 
+const target_points = 5
+const bounce_points = 8 * target_points
+
 var current_x_offset = 0
 var current_y = 0
 var current_direction = 0
@@ -38,6 +41,7 @@ func _ready():
 	_i = Signals.connect("crate_destroyed", self, "increase_score_crate")
 	_i = Signals.connect("target_destroyed", self, "increase_score_target")
 	_i = Signals.connect("target_destroyed", self, "increment_combo")
+	_i = Signals.connect("bounce", self, "increase_score_bounce_pad")
 	_i = Signals.connect("reset_combo", self, "reset_combo")
 	_i = Signals.connect("game_over", self, "game_over")
 	add_segment()
@@ -184,12 +188,16 @@ func increase_score_crate():
 
 
 func increase_score_target():
-	Global.score += 5 * (1 + Global.combo)
+	Global.score += target_points * (1 + Global.combo)
 	update_score_ui()
 
 
 func update_score_ui():
 	score_text.set_text("%d" % [Global.score])
+
+
+func increase_score_bounce_pad():
+	Global.score += bounce_points * (1 + Global.combo)
 
 
 func game_over():
