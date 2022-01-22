@@ -21,14 +21,16 @@ func _process(delta):
 	var collision = move_and_collide(velocity * 5000 * delta)
 	if collision:
 		var obj = collision.collider
-		print(obj.get_class())
 		if obj.get_class() == "BouncePad":
-			Signals.emit_signal("bounce")
-			var direction = 1
-			if obj.is_right:
-				direction = -1
-			velocity. x += 0.5 * direction
-			obj.bounce()
+			var time = OS.get_unix_time()
+			if time > last_bounce + 1:
+				last_bounce = time
+				Signals.emit_signal("bounce")
+				var direction = 1
+				if obj.is_right:
+					direction = -1
+				velocity. x += 0.5 * direction
+				obj.bounce()
 
 		elif obj.get_class() == "Obstacle":
 			Signals.emit_signal("game_over")
