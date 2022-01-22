@@ -53,6 +53,7 @@ volume_db = -18.0
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="finished" from="ExplosionSound" to="." method="_on_ExplosionSound_finished"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]
