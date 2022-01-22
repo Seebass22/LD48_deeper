@@ -3,11 +3,11 @@ extends Sprite
 const Bullet = preload("res://Bullet.tscn")
 
 func _ready():
-	Signals.connect("slow_motion_start", self, "low_pitch_pew")
-	Signals.connect("slow_motion_end", self, "high_pitch_pew")
+	var _i = Signals.connect("slow_motion_start", self, "low_pitch_pew")
+	_i = Signals.connect("slow_motion_end", self, "high_pitch_pew")
 
 
-func _process(delta):
+func _process(_delta):
 	look_at(get_global_mouse_position())
 
 
