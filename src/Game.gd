@@ -11,6 +11,7 @@ const Target = preload("res://Target.tscn")
 const SlowdownArea = preload("res://SlowdownArea.tscn")
 const Obstacle = preload("res://Obstacle.tscn")
 const BouncePad = preload("res://BouncePad.tscn")
+const InvisibleCorner = preload("res://InvisibleCorner.tscn")
 
 const wall_width = 3
 const tunnel_width = 10
@@ -49,8 +50,6 @@ func _ready():
 	Global.score = 0
 	update_score_ui()
 	reset_combo()
-	print(tile_names)
-	print(tile_ids)
 
 func get_tile_ids():
 	for category in tile_names.keys():
@@ -67,6 +66,12 @@ func generate_direction_change_segment(x_pos, y_pos):
 	var top_tiles
 	var bot_tiles
 	var offset
+	print(y_pos)
+	var invisibleCorner = InvisibleCorner.instance()
+
+	invisibleCorner.position.x = x_pos * 64 + (64 * 2)
+	invisibleCorner.position.y = y_pos * 64
+
 	if segment_direction == 1:
 		top_tiles = ["corner_bot_left", "mid2", "right_bot_side", "small_corner3"]
 		bot_tiles = ["small_corner1", "curve1", "curve2", "corner_top_right"]
@@ -75,6 +80,10 @@ func generate_direction_change_segment(x_pos, y_pos):
 		top_tiles = ["small_corner2", "curve4", "curve3", "left_bot_side"]
 		bot_tiles = ["corner_top_left", "mid1", "right_top_side", "small_corner4"]
 		offset = 0
+		invisibleCorner.position.x += tunnel_width * 64 + (64*2)
+		invisibleCorner.scale.x = -1
+
+	add_child(invisibleCorner)
 
 	var y = y_pos
 	for tile_row in [top_tiles, bot_tiles]:
@@ -198,6 +207,7 @@ func update_score_ui():
 
 func increase_score_bounce_pad():
 	Global.score += bounce_points * (1 + Global.combo)
+	update_score_ui()
 
 
 func game_over():
@@ -240,7 +250,7 @@ func spawn_BouncePad(y, is_right):
 		scale = -2
 
 	var bouncePad = BouncePad.instance()
-	var offset = randi() % 16
+	var offset = randi() % 14
 
 	bouncePad.position.x = start_x
 	bouncePad.position.y = (y-offset) * 64
