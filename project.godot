@@ -88,6 +88,7 @@ slow_motion={
 2d_physics/layer_4="bullets"
 2d_physics/layer_5="slowdown area"
 2d_physics/layer_6="targets"
+2d_physics/layer_7="bounce pads"
 
 [rendering]
 

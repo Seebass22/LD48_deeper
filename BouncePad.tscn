@@ -25,6 +25,7 @@ animations = [ {
 
 [node name="BouncePad" type="StaticBody2D"]
 scale = Vector2( 2, 2 )
+collision_layer = 64
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,7 +34,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
