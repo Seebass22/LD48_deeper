@@ -66,7 +66,6 @@ func generate_direction_change_segment(x_pos, y_pos):
 	var top_tiles
 	var bot_tiles
 	var offset
-	print(y_pos)
 	var invisibleCorner = InvisibleCorner.instance()
 
 	invisibleCorner.position.x = x_pos * 64 + (64 * 2)

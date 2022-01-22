@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
-var max_x_speed = 0.15
-var y_speed = 0.12
+var max_x_speed = 0.14
+var y_speed = 0.11
 var velocity
 var acceleration = 1.8
 
 var next_segment_generation_y = 1024
+var last_bounce = OS.get_unix_time()
 
 signal should_generate_segment
 
