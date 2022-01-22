@@ -16,10 +16,12 @@ func _ready():
 
 func _process(delta):
 	handle_input(delta)
+	velocity.y = y_speed
 
 	var collision = move_and_collide(velocity * 5000 * delta)
 	if collision:
 		var obj = collision.collider
+		print(obj.get_class())
 		if obj.get_class() == "BouncePad":
 			Signals.emit_signal("bounce")
 			var direction = 1
@@ -30,7 +32,15 @@ func _process(delta):
 
 		elif obj.get_class() == "Obstacle":
 			Signals.emit_signal("game_over")
-		# else:
+			
+		elif obj.get_class() == "TileMap":
+			velocity.x *= -1
+
+		else:
+			var direction = 1
+			if obj.scale.x == -1:
+				direction = -1
+			velocity.x += 10 * delta * direction
 
 	if position.y >= next_segment_generation_y:
 		next_segment_generation_y += 1024

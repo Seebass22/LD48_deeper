@@ -40,13 +40,12 @@ scale = Vector2( 2, 2 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 2
-collision_mask = 0
 format = 1
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 298.191, 13.1195 )
 scale = Vector2( 2, 2 )
-collision_mask = 6
+collision_mask = 198
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
