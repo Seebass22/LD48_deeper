@@ -12,9 +12,9 @@ const SlowdownArea = preload("res://SlowdownArea.tscn")
 const Obstacle = preload("res://Obstacle.tscn")
 const BouncePad = preload("res://BouncePad.tscn")
 
-var wall_width = 3
-var tunnel_width = 10
-var segment_size = 16
+const wall_width = 3
+const tunnel_width = 10
+const segment_size = 16
 
 const target_points = 5
 const bounce_points = 8 * target_points
@@ -147,7 +147,7 @@ func add_target_segment():
 
 	var slowdown_area = SlowdownArea.instance()
 	var start_x = current_x_offset + wall_width
-	slowdown_area.position = Vector2(start_x * 64, current_y * 64)
+	slowdown_area.position = Vector2(start_x * 64, current_y * 64 + 64)
 	add_child(slowdown_area)
 
 	var pattern = randi() % 3
@@ -240,7 +240,7 @@ func spawn_BouncePad(y, is_right):
 		scale = -2
 
 	var bouncePad = BouncePad.instance()
-	var offset = randi() % 10
+	var offset = randi() % 16
 
 	bouncePad.position.x = start_x
 	bouncePad.position.y = (y-offset) * 64
