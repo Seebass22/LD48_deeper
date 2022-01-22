@@ -10,6 +10,7 @@ const Crate = preload("res://Crate.tscn")
 const Target = preload("res://Target.tscn")
 const SlowdownArea = preload("res://SlowdownArea.tscn")
 const Obstacle = preload("res://Obstacle.tscn")
+const BouncePad = preload("res://BouncePad.tscn")
 
 var wall_width = 3
 var tunnel_width = 10
@@ -126,6 +127,7 @@ func add_segment():
 			spawn_obstacles()
 
 	generate_segment(current_x_offset, current_y)
+	spawn_BouncePad(current_y, randi() % 2 == 1)
 
 
 func spawn_obstacles():
@@ -240,3 +242,20 @@ func spawn_obstacle(y):
 	obstacle.tunnel_width = (tunnel_width * 64)
 	obstacle.position.y = y * 64
 	add_child(obstacle)
+
+
+func spawn_BouncePad(y, is_right):
+	var start_x = (current_x_offset + wall_width) * 64 + 16
+	var scale = 2
+	if is_right:
+		start_x += tunnel_width * 64 - 32
+		scale = -2
+
+	var bouncePad = BouncePad.instance()
+	var offset = randi() % 10
+
+	bouncePad.position.x = start_x
+	bouncePad.position.y = (y-offset) * 64
+	bouncePad.scale.x = scale
+	bouncePad.is_right = is_right
+	add_child(bouncePad)

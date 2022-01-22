@@ -13,3 +13,6 @@ func _process(delta):
 		direction = -1
 	if position.x <= starting_position_x:
 		direction = 1
+
+func get_class():
+	return "Obstacle"
