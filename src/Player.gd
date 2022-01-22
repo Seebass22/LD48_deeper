@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 var max_x_speed = 0.15
-var y_speed = 0.13
+var y_speed = 0.12
 var velocity
-var acceleration = 0.6
+var acceleration = 1.8
 
 var next_segment_generation_y = 1024
 
@@ -27,7 +27,7 @@ func _process(delta):
 			var direction = 1
 			if obj.is_right:
 				direction = -1
-			velocity. x += 0.3 * direction
+			velocity. x += 0.5 * direction
 			obj.bounce()
 
 		elif obj.get_class() == "Obstacle":
