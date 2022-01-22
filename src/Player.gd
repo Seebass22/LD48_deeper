@@ -21,11 +21,13 @@ func _process(delta):
 	if collision:
 		var obj = collision.collider
 		if obj.get_class() == "BouncePad":
+			Signals.emit_signal("bounce")
 			var direction = 1
 			if obj.is_right:
 				direction = -1
 			velocity. x += 0.3 * direction
 			obj.bounce()
+
 		elif obj.get_class() == "Obstacle":
 			Signals.emit_signal("game_over")
 		# else:
