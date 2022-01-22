@@ -250,7 +250,7 @@ func spawn_BouncePad(y, is_right):
 		scale = -2
 
 	var bouncePad = BouncePad.instance()
-	var offset = randi() % 14
+	var offset = (randi() % 13) + 1
 
 	bouncePad.position.x = start_x
 	bouncePad.position.y = (y-offset) * 64
