@@ -137,26 +137,6 @@ func spawn_obstacles():
 			spawn_obstacle(spawn_y)
 
 
-func add_crate_segment():
-	if current_y < 3:
-		return
-
-	var slowdown_area = SlowdownArea.instance()
-	var start_x = current_x_offset + wall_width
-	slowdown_area.position = Vector2(start_x * 64, current_y * 64)
-	add_child(slowdown_area)
-
-	var crate_spawn_y_offset = 4
-	for y in range(4):
-		y += current_y
-		y += crate_spawn_y_offset
-		for x in range(tunnel_width):
-			var crate = Crate.instance()
-			x += current_x_offset + wall_width
-			crate.position = Vector2(x * 64, y * 64)
-			add_child(crate)
-
-
 func add_target_segment():
 	if current_y < 3:
 		return
